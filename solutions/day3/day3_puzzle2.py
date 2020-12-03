@@ -2,7 +2,7 @@
 # coding: utf-8
 
 
-def findValidPasswords(values, tree, swerverate, skip):
+def findTrees(values, tree, swerverate, skip):
     trees = 0
     swerve = 0
     i = 0
@@ -27,9 +27,9 @@ with open('day3_input') as fp:
         line = fp.readline()
 
 print(
-    findValidPasswords(values, '#', 1, 1) *
-    findValidPasswords(values, '#', 3, 1) *
-    findValidPasswords(values, '#', 5, 1) *
-    findValidPasswords(values, '#', 7, 1) *
-    findValidPasswords(values, '#', 1, 2)
+    findTrees(values, '#', 1, 1) *
+    findTrees(values, '#', 3, 1) *
+    findTrees(values, '#', 5, 1) *
+    findTrees(values, '#', 7, 1) *
+    findTreesA(values, '#', 1, 2)
 )
