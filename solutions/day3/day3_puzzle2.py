@@ -31,5 +31,5 @@ print(
     findTrees(values, '#', 3, 1) *
     findTrees(values, '#', 5, 1) *
     findTrees(values, '#', 7, 1) *
-    findTreesA(values, '#', 1, 2)
+    findTrees(values, '#', 1, 2)
 )
