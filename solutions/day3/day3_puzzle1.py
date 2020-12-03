@@ -2,7 +2,7 @@
 # coding: utf-8
 
 
-def findValidPasswords(values, tree):
+def findTrees(values, tree):
     trees = 0
     swerve = 0
     itervalues = iter(values)
@@ -26,4 +26,4 @@ with open('day3_input') as fp:
             values.append(line.strip())
         line = fp.readline()
 
-findValidPasswords(values, '#')
+findTrees(values, '#')
