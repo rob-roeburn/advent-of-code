@@ -24,11 +24,9 @@ def eyr(__value):
 def hgt(__value):
     hgt_re = re.compile('[0-9]+')
     if ('cm' in __value):
-        return (int(hgt_re.findall(__value)[0])
-                >= 150 and int(hgt_re.findall(__value)[0]) <= 193)
+        return (150 <= int(hgt_re.findall(__value)[0]) <= 193)
     elif ('in' in __value):
-        return (int(hgt_re.findall(__value)[0])
-                >= 59 and int(hgt_re.findall(__value)[0]) <= 76)
+        return (59 <= int(hgt_re.findall(__value)[0]) <= 76)
 
 
 # hcl (Hair Color) - a # followed by exactly six characters 0-9 or a-f.
@@ -56,6 +54,8 @@ def cid(__value):
 validator = {'byr': byr, 'iyr': iyr, 'eyr': eyr, 'hgt': hgt,
              'hcl': hcl, 'ecl': ecl, 'pid': pid, 'cid': cid}
 
+validElements = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
+
 
 def validatePassports(values):
     passportElements = {}
@@ -69,8 +69,7 @@ def validatePassports(values):
             for element in value.split(" "):
                 passportElements[element.split(":")[0]] = element.split(":")[1]
         if (passportComplete):
-            if (all(x in passportElements for x in
-                    ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'])):
+            if (all(x in passportElements for x in validElements)):
                 for key, value in passportElements.items():
                     if (validator[key](value)):
                         passportValid = True
